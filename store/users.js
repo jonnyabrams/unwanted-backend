@@ -24,9 +24,14 @@ const addUser = (user) => {
   users.push(user);
 };
 
+const deleteUser = (user) => {
+  users.filter((existing_user) => user !== existing_user);
+};
+
 module.exports = {
   getUsers,
   getUserByEmail,
   getUserById,
   addUser,
+  deleteUser
 };
