@@ -5,12 +5,12 @@ const jwt = require("jsonwebtoken");
 const usersStore = require("../store/users");
 const validateWith = require("../middleware/validation");
 
-const schema = {
+const schema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required().min(5),
-};
+});
 
-router.post("/", (req, res) => {
+router.post("/", validateWith(schema), (req, res) => {
   const { email, password } = req.body;
   const user = usersStore.getUserByEmail(email);
   if (!user || user.password !== password)
