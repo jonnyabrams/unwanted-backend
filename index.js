@@ -6,7 +6,7 @@ const users = require("./routes/users");
 const user = require("./routes/user");
 const auth = require("./routes/auth");
 // const my = require("./routes/my");
-// const messages = require("./routes/messages");
+const messages = require("./routes/messages");
 // const expoPushTokens = require("./routes/expoPushTokens");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -26,7 +26,7 @@ app.use("/api/users", users);
 app.use("/api/auth", auth);
 // app.use("/api/my", my);
 // app.use("/api/expoPushTokens", expoPushTokens);
-// app.use("/api/messages", messages);
+app.use("/api/messages", messages);
 
 const port = process.env.PORT || config.get("port");
 app.listen(port, function() {
