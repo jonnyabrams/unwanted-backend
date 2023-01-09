@@ -1,6 +1,6 @@
 const express = require("express");
 // const categories = require("./routes/categories");
-// const listings = require("./routes/listings");
+const listings = require("./routes/listings");
 // const listing = require("./routes/listing");
 const users = require("./routes/users");
 const user = require("./routes/user");
@@ -20,7 +20,7 @@ app.use(compression());
 
 // app.use("/api/categories", categories);
 // app.use("/api/listing", listing);
-// app.use("/api/listings", listings);
+app.use("/api/listings", listings);
 app.use("/api/user", user);
 app.use("/api/users", users);
 app.use("/api/auth", auth);
